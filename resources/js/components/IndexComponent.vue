@@ -58,14 +58,12 @@
 import AddUpdateUser from "./Modal/AddUpdateUser";
 import deleteUser from "./Modal/DeleteUser";
 import manageRole from "./Modal/ManageRole";
-import Spinner from 'vue-simple-spinner'
 
 export default {
   components: {
     "add-update-user": AddUpdateUser,
     "delete-user": deleteUser,
-		"manage-role": manageRole,
-		 Spinner
+		"manage-role": manageRole
   },
 
   name: "index-component",

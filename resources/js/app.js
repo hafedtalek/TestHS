@@ -10,14 +10,11 @@ window.Vue = require('vue');
 import Vue from 'vue'
 import Vuex from 'vuex'
 import Vuetify from 'vuetify'
-//import Notifications from 'vue-notification'
 import myComponenet from './components/IndexComponent'
-import VueNotification from "@kugatsu/vuenotification";
+import VueNotification from "@kugatsu/vuenotification"
 
 
-Vue.use(VueNotification, {
-  timer: 5
-});
+Vue.use(VueNotification, {timer: 5});
 Vue.use(Vuetify)
 Vue.use(Vuex)
 Vue.use(myComponenet)
