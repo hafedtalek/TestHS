@@ -80,9 +80,9 @@ export default {
       roleModalVisible: false,
       actionType: "create",
       headers: [
-        { text: "id", value: "user.id", sortable: true },
-        { text: "Name", value: "user.name", sortable: true },
-        { text: "Email", value: "user.email", sortable: true },
+        { text: "id", value: "id", sortable: true },
+        { text: "Name", value: "name", sortable: true },
+        { text: "Email", value: "email", sortable: true },
         { text: "Actions", sortable: false }
       ]
     };

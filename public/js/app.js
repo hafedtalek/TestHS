@@ -5347,15 +5347,15 @@ __webpack_require__.r(__webpack_exports__);
       actionType: "create",
       headers: [{
         text: "id",
-        value: "user.id",
+        value: "id",
         sortable: true
       }, {
         text: "Name",
-        value: "user.name",
+        value: "name",
         sortable: true
       }, {
         text: "Email",
-        value: "user.email",
+        value: "email",
         sortable: true
       }, {
         text: "Actions",
@@ -5622,11 +5622,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "remove-user",
   props: {
     deleteModalVisible: Boolean,
     deletedUser: Object
+  },
+  data: function data() {
+    return {
+      loading: false
+    };
   },
   methods: {
     closeModal: function closeModal() {
@@ -5636,8 +5646,10 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       self = this;
+      this.loading = true;
       axios["delete"]("/api/users/" + this.deletedUser.id).then(function (_ref) {
         var data = _ref.data;
+        _this.loading = false;
 
         _this.$store.commit("deleteUser", _this.deletedUser);
 
@@ -5645,6 +5657,7 @@ __webpack_require__.r(__webpack_exports__);
 
         _this.$notification["new"]("user Deleted");
       })["catch"](function (errorResponse) {
+        this.loading = false;
         self.$notification["new"]("User not deleted", {
           type: "error",
           position: "bottomCenter"
@@ -50084,7 +50097,20 @@ var render = function() {
                       attrs: { color: "red darken-1", flat: "" },
                       on: { click: _vm.remove }
                     },
-                    [_vm._v("Remove")]
+                    [
+                      _vm._v("\n        Remove\n        "),
+                      _vm.loading
+                        ? _c(
+                            "span",
+                            { attrs: { slot: "loader" }, slot: "loader" },
+                            [
+                              _c("i", {
+                                staticClass: "fa fa-btn fa-spinner fa-spin"
+                              })
+                            ]
+                          )
+                        : _vm._e()
+                    ]
                   )
                 ],
                 1
