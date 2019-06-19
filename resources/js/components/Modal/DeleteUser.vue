@@ -16,7 +16,11 @@
       <v-card-actions>
         <v-spacer></v-spacer>
         <v-btn color="blue darken-1" flat @click="closeModal">Cancel</v-btn>
-        <v-btn color="red darken-1" flat @click="remove">Remove</v-btn>
+        <v-btn color="red darken-1" flat @click="remove">
+          Remove
+          <vue-simple-spinner v-if="loading"></vue-simple-spinner>
+          
+        </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -29,23 +33,28 @@ export default {
     deleteModalVisible: Boolean,
     deletedUser: Object
   },
-
+  data() {
+    return {
+      loading: false
+    };
+  },
   methods: {
     closeModal() {
       this.$emit("update:deleteModalVisible", false);
     },
-
     remove() {
       self = this;
-
+      this.loading = true;
       axios
         .delete("/api/users/" + this.deletedUser.id)
         .then(({ data }) => {
+          this.loading = false;
           this.$store.commit("deleteUser", this.deletedUser);
           this.closeModal();
           this.$notification.new("user Deleted");
         })
         .catch(function(errorResponse) {
+          this.loading = false;
           self.$notification.new("User not deleted", {
             type: "error",
             position: "bottomCenter"

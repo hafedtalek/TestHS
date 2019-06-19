@@ -15,7 +15,6 @@ import myComponenet from './components/IndexComponent'
 import VueNotification from "@kugatsu/vuenotification";
 
 
-
 Vue.use(VueNotification, {
   timer: 5
 });
