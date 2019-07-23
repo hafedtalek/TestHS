@@ -1,11 +1,11 @@
 <template>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-md-8">
+      <div class="col-md-12">
         <div class="card">
           <div class="card-header">
             <v-toolbar blue>
-              <v-toolbar-title>My Client List</v-toolbar-title>
+              <v-toolbar-title>Clients List</v-toolbar-title>
               <v-spacer></v-spacer>
               <v-text-field
                 v-model="search"

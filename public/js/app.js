@@ -51058,7 +51058,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-md-8" }, [
+      _c("div", { staticClass: "col-md-12" }, [
         _c("div", { staticClass: "card" }, [
           _c(
             "div",
@@ -51068,7 +51068,7 @@ var render = function() {
                 "v-toolbar",
                 { attrs: { blue: "" } },
                 [
-                  _c("v-toolbar-title", [_vm._v("My Client List")]),
+                  _c("v-toolbar-title", [_vm._v("Clients List")]),
                   _vm._v(" "),
                   _c("v-spacer"),
                   _vm._v(" "),
