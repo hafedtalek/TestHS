@@ -18,7 +18,7 @@
     
             <v-content>
             	<section>
-								<index-component></index-component>
+								<client-component></client-component>
 							</section>
 						</v-content>
 					</v-app>

@@ -13,4 +13,5 @@ use Illuminate\Http\Request;
 |
 */
 Route::resource('users', 'API\UserController');
+Route::resource('clients', 'API\ClientController');
 Route::post('users/role/{id}', 'API\UserController@editRole');

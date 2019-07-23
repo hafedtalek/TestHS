@@ -11,6 +11,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import Vuetify from 'vuetify'
 import myComponenet from './components/IndexComponent'
+import clientComponenet from './components/clientComponent'
 import VueNotification from "@kugatsu/vuenotification"
 
 
@@ -26,6 +27,7 @@ Vue.use(myComponenet)
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 Vue.component(myComponenet.name, myComponenet)
+Vue.component(clientComponenet.name, clientComponenet)
 
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
@@ -33,7 +35,8 @@ Vue.component(myComponenet.name, myComponenet)
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 var store = new Vuex.Store({
   state: {
-    users: []
+    users: [],
+    clients: []
   },
   mutations: {
     getUser (state, users) {
@@ -52,6 +55,23 @@ var store = new Vuex.Store({
         return obj.id == user.id 
       });
       Vue.set(state.users, index, user)
+    },
+    getClient (state, clients) {
+      state.clients = clients
+    },
+    addClient (state, client) {
+      state.clients.unshift(client)
+    },
+    deleteClient (state, client) {
+      state.clients = state.clients.filter(function(obj){
+        return obj.id != client.id 
+      });
+    },
+    updateClient (state, client) {
+      let index = state.clients.findIndex(function(obj){
+        return obj.id == client.id 
+      });
+      Vue.set(state.clients, index, client)
     }
   }
 })
